@@ -1,6 +1,27 @@
 <h1>Details</h1>
 
 <h2><%= @question.title %></h2>
-<p><%= @question.description %></p>
+<%= @question.description %>
 
 <%= link_to("Back", questions_path) %>
+
+<h1>Answers:</h1>
+  <ul>
+    <% @answers.each do |a| %>
+      <li><%= "#{a.description} - #{a.created_at.strftime("Answered on %m/%d/%Y")}" %></li>
+    <% end %>
+  </ul>
+
+<%= form_for [@question, @answer] do |f| %>
+  <div>
+    <%= f.text_area :description, placeholder: "Enter your description" %>
+  </div>
+  <%= f.submit %>
+<% end %>
+<!-- button_to defaults to the post method -->
+<%= button_to "Delete Question", @question, method: :delete %>
+<%= link_to "Edit Question", edit_question_path %><br>
+<% binding.pry %>
+<%= link_to "Back", questions_path %>
+
+

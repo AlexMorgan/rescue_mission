@@ -1,0 +1,12 @@
+<h1>Add Question:</h1>
+
+<%= form_for [@question] do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Enter your title" %>
+  </div>
+  <div>
+    <%= f.text_field :description, placeholder: "Enter your description" %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Edit Question:</h1>
+
+<%= form_for [@question] do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Enter your title" %>
+  </div>
+  <div>
+    <%= f.text_area :description, placeholder: "Enter your description" %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to("Back", question_path) %>
